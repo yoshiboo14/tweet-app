@@ -14,7 +14,7 @@ class indexController extends Controller
      */
     public function index()
     {
-        //
+        return view('Tweet.index');
     }
 
     /**
