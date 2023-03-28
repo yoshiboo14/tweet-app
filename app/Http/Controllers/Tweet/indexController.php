@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tweet;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Tweet;
 
 class indexController extends Controller
 {
@@ -14,7 +15,16 @@ class indexController extends Controller
      */
     public function index()
     {
-        return view('Tweet.index');
+
+
+        // $tweets = Tweet::all();
+        // dd($tweets);
+
+        $tweets = Tweet::select('id','content')->get();
+
+        // 第２引数で変数nameにlaravelを渡す
+
+        return view('Tweet.index',['name' => 'laravel'], compact('tweets'));
     }
 
     /**
