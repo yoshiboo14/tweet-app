@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Tweet\indexController;
+use App\Http\Controllers\Tweet\tweetController;
 
 
 /*
@@ -17,7 +17,7 @@ use App\Http\Controllers\Tweet\indexController;
 |
 */
 
-Route::get('/index',[indexController::class, 'index'])->name('index');
+Route::get('/index',[tweetController::class, 'index'])->name('index');
 
 Route::get('/', function () {
     return view('welcome');

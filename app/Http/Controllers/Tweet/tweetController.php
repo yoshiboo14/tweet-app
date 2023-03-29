@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tweet;
 
-class indexController extends Controller
+class tweetController extends Controller
 {
     /**
      * Display a listing of the resource.
