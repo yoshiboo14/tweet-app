@@ -18,6 +18,8 @@ use App\Http\Controllers\Tweet\tweetController;
 */
 
 Route::get('/index',[tweetController::class, 'index'])->name('index');
+Route::post('/create',[tweetController::class, 'create'])->name('create');
+
 
 Route::get('/', function () {
     return view('welcome');
