@@ -7,11 +7,25 @@
     <title>つぶやきアプリ</title>
 </head>
 <body>
+    
     <h1>つぶやきアプリ</h1>
-    <p>{{$name}}</p>
-    @foreach($tweets as $tweet)
-        <p>{{ $tweet->id }}</p>
-        <p>{{ $tweet->content }}</p>
-    @endforeach
+    <div>
+        <p>投稿フォーム</p>
+        <form action="{{ route('create') }}" method='post'>
+            @csrf
+            <label for="tweet-content">つぶやき</label>
+            <span>140文字まで</span>
+            <textarea name="tweet" id="tweet-content" type="text" placeholder="つぶやきを入力"></textarea>
+            <button  type="submit">投稿</button>
+        </form>
+        <!-- <p>{{$name}}</p>
+        @foreach($tweets as $tweet)
+            <p>{{ $tweet->id }}</p>
+            <p>{{ $tweet->content }}</p>
+        @endforeach -->
+        @error('tweet')
+        <p style="color:red;">{{ $message }}</p>
+        @enderror
+    </div>
 </body>
 </html>

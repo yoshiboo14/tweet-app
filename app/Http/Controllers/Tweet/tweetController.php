@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tweet;
 
+// Requestsの紐付け
+use App\Http\Requests\Tweet\createRequest;
+
 class tweetController extends Controller
 {
     /**
@@ -32,9 +35,12 @@ class tweetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(createRequest $request)
     {
-        //
+        $tweet = new Tweet;
+        $tweet->content = $request->tweet();
+        $tweet->save();
+        return redirect()->route('index');
     }
 
     /**
