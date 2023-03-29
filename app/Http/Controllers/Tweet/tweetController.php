@@ -35,6 +35,10 @@ class tweetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //  createRequest $request は 
+    //  createRequestクラスとそれをインスタンス化したものを$requestに格納したもの
+    //  あとは、メソッドの中で $request->プロパティ名 や $request->メソッド名 とすれば、createRequestクラスの中のプロパティやメソッドを呼び出すことができる。
     public function create(createRequest $request)
     {
         $tweet = new Tweet;
@@ -73,7 +77,10 @@ class tweetController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 選択されたidに該当するテーブルの情報をすべて持ってくる
+        $tweet = Tweet::find($id);
+
+        return view('Tweet.edit', compact('tweet'));
     }
 
     /**
@@ -85,7 +92,14 @@ class tweetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tweet = Tweet::find($id);
+
+        $tweet->content = $request->tweet;
+
+        $tweet->save();
+
+        return redirect()->route('edit',['id' => $tweet->id ])->with('feedback.success',"つぶやきを編集しました");
+
     }
 
     /**

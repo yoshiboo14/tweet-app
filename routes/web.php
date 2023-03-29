@@ -17,8 +17,17 @@ use App\Http\Controllers\Tweet\tweetController;
 |
 */
 
+// memo
+// GET メソッドは、データの要求をするもの。
+// POST メソッドは、データの追加を要求するもの。
+// GET メソッドと POST メソッドでの用途が明確に違う。
+// データの修正や追加などを行うときには GET メソッドではなくて POST メソッドを使う。
+
 Route::get('/index',[tweetController::class, 'index'])->name('index');
 Route::post('/create',[tweetController::class, 'create'])->name('create');
+Route::get('/{id}/edit',[tweetController::class,'edit'])->name('edit');
+Route::post('/{id}',[tweetController::class,'update'])->name('update');
+
 
 
 Route::get('/', function () {
