@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <h1>つぶやきアプリ</h1>
+    <h1>{{ $name }}</h1>
     <div>
         <p>投稿フォーム</p>
         <form action="{{ route('create') }}" method='post'>

@@ -26,8 +26,7 @@ class tweetController extends Controller
         $tweets = Tweet::select('id','content')->get();
 
         // 第２引数で変数nameにlaravelを渡す
-
-        return view('Tweet.index',['name' => 'laravel'], compact('tweets'));
+        return view('Tweet.index',['name' => 'つぶやきアプリ'], compact('tweets'));
     }
 
     /**
