@@ -18,11 +18,10 @@
             <textarea name="tweet" id="tweet-content" type="text" placeholder="つぶやきを入力"></textarea>
             <button  type="submit">投稿</button>
         </form>
-        <!-- <p>{{$name}}</p>
         @foreach($tweets as $tweet)
-            <p>{{ $tweet->id }}</p>
             <p>{{ $tweet->content }}</p>
-        @endforeach -->
+            <a href="{{ route('edit',['id' => $tweet->id ]) }}">編集する</a>
+        @endforeach
         @error('tweet')
         <p style="color:red;">{{ $message }}</p>
         @enderror

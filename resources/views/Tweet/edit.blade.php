@@ -17,7 +17,7 @@
             <label for="tweet-content">つぶやき</label>
             <span>140文字まで</span>
             <textarea name="tweet" id="tweet-content" type="text" placeholder="つぶやきを入力">{{ $tweet->content }}</textarea>
-            <button  type="submit">編集</button>
+            <button  type="submit">更新</button>
         </form>
         @error('tweet')
         <p style="color:red;">{{ $message }}</p>
