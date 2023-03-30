@@ -10,6 +10,7 @@
     
     <h1>つぶやきアプリ</h1>
     <div>
+        <a href="{{ route('index')}}">戻る</a>
         <p>編集画面</p>
         <form action="{{ route('update',['id' => $tweet->id ]) }}" method='post'>
             @csrf
@@ -21,6 +22,12 @@
         @error('tweet')
         <p style="color:red;">{{ $message }}</p>
         @enderror
+
+        <form action="{{ route('destroy', ['id' => $tweet->id ]) }}" method='post'>
+            @csrf
+            <button type="submit" >削除</button>
+        </form>
+
     </div>
 </body>
 </html>

@@ -27,6 +27,7 @@ Route::get('/index',[tweetController::class, 'index'])->name('index');
 Route::post('/create',[tweetController::class, 'create'])->name('create');
 Route::get('/{id}/edit',[tweetController::class,'edit'])->name('edit');
 Route::post('/{id}',[tweetController::class,'update'])->name('update');
+Route::post('/{id}/destroy',[tweetController::class, 'destroy'])->name('destroy');
 
 
 
