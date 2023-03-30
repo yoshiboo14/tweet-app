@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>つぶやきアプリ</title>
+    <style>
+        .editButton{
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     
@@ -20,7 +25,9 @@
         </form>
         @foreach($tweets as $tweet)
             <p>{{ $tweet->content }}</p>
-            <a href="{{ route('edit',['id' => $tweet->id ]) }}">編集する</a>
+            <button>
+                <a class="editButton" href="{{ route('edit',['id' => $tweet->id ]) }}">編集する</a>
+            </button>
         @endforeach
         @error('tweet')
         <p style="color:red;">{{ $message }}</p>

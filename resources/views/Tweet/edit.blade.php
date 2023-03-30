@@ -5,12 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>つぶやきアプリ</title>
+    <style>
+        .backButton{
+            text-decoration: none;
+        }
+    </style>
+
 </head>
 <body>
     
     <h1>つぶやきアプリ</h1>
     <div>
-        <a href="{{ route('index')}}">戻る</a>
+        <button>
+            <a class="backButton" href="{{ route('index')}}">戻る</a>
+        </button>
         <p>編集画面</p>
         <form action="{{ route('update',['id' => $tweet->id ]) }}" method='post'>
             @csrf
