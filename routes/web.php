@@ -23,11 +23,11 @@ use App\Http\Controllers\Tweet\tweetController;
 // GET メソッドと POST メソッドでの用途が明確に違う。
 // データの修正や追加などを行うときには GET メソッドではなくて POST メソッドを使う。
 
-Route::get('/index',[tweetController::class, 'index'])->name('index');
-Route::post('/create',[tweetController::class, 'create'])->name('create');
+Route::get('/index',[tweetController::class, 'index'])->name('tweetIndex');
+Route::post('/create',[tweetController::class, 'create'])->name('tweetCreate');
 Route::get('/{id}/edit',[tweetController::class,'edit'])->name('edit');
-Route::post('/{id}',[tweetController::class,'update'])->name('update');
-Route::post('/{id}/destroy',[tweetController::class, 'destroy'])->name('destroy');
+Route::post('/{id}',[tweetController::class,'update'])->name('tweetUpdate');
+Route::post('/{id}/destroy',[tweetController::class, 'destroy'])->name('tweetDestroy');
 
 
 
