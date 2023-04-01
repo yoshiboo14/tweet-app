@@ -8,6 +8,7 @@ use App\Models\Tweet;
 
 // Requestsの紐付け
 use App\Http\Requests\Tweet\createRequest;
+use App\Http\Requests\Tweet\UpdateRequest;
 
 class tweetController extends Controller
 {
@@ -22,6 +23,7 @@ class tweetController extends Controller
 
         // $tweets = Tweet::all();
         // dd($tweets);
+
 
         $tweets = Tweet::select('id','content')->get();
 
@@ -43,7 +45,7 @@ class tweetController extends Controller
         $tweet = new Tweet;
         $tweet->content = $request->tweet();
         $tweet->save();
-        return redirect()->route('index');
+        return redirect()->route('tweetIndex');
     }
 
     /**
@@ -89,18 +91,15 @@ class tweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-        $tweet = Tweet::find($id);
 
-        $tweet->content = $request->tweet;
-
+        $tweet = Tweet::where('id', $request->id())->firstOrFail();
+        $tweet->content = $request->tweet();
         $tweet->save();
-
-        return redirect()->route('edit',['id' => $tweet->id ])->with('feedback.success',"つぶやきを編集しました");
-
+        return redirect()->route('tweetIndex',['id'=> $tweet->id]);
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -113,7 +112,7 @@ class tweetController extends Controller
 
         $tweet->delete();
 
-        return redirect()->route('index');
+        return redirect()->route('tweetIndex');
 
     }
 }

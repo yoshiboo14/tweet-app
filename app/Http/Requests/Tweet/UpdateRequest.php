@@ -24,6 +24,8 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
+            
+            // edit.blade.phpのtextareaのname属性
             'tweet' => 'required|max:140'
         ];
     }
@@ -31,5 +33,10 @@ class UpdateRequest extends FormRequest
     public function tweet(): string
     {
         return $this->input('tweet');
+    }
+
+    public function id(): int
+    {
+        return (int) $this->route('id');
     }
 }
