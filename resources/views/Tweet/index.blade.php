@@ -4,5 +4,6 @@
             つぶやきアプリ
         </h2>
         <x-tweet.form.post></x-tweet.form.post>
+        <x-tweet.form.list :tweets="$tweets"></x-tweet.form.list>
     </x-tweet.form.container>
 </x-layout>
