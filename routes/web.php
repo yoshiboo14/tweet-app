@@ -25,7 +25,7 @@ use App\Http\Controllers\Tweet\tweetController;
 
 Route::get('/index',[tweetController::class, 'index'])->name('tweetIndex');
 Route::post('/create',[tweetController::class, 'create'])->name('tweetCreate');
-Route::get('/{id}/edit',[tweetController::class,'edit'])->name('edit');
+Route::get('/{tweetId}/tweetEdit',[tweetController::class,'edit'])->name('tweetEdit');
 Route::post('/{tweetId}',[tweetController::class,'update'])->name('tweetUpdate');
 Route::post('/{tweetId}/destroy',[tweetController::class, 'destroy'])->name('tweetDestroy');
 
